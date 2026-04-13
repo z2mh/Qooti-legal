@@ -5,266 +5,290 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy – Qooti</title>
   <style>
-    :root {
-      --accent: #FF751F;
-      --text: #1a1a1a;
-      --muted: #6b7280;
-      --border: #e5e7eb;
-      --bg: #ffffff;
-    }
+    :root { --accent: #FF751F; --border: #e5e7eb; --muted: #6b7280; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.7;
-      padding: 0 16px;
+      background: #fff; color: #1a1a1a; line-height: 1.8; padding: 0 16px;
     }
-    header {
-      border-bottom: 1px solid var(--border);
-      padding: 32px 0 24px;
-      margin-bottom: 40px;
-      max-width: 720px;
-      margin-left: auto;
-      margin-right: auto;
+    body[dir="rtl"] {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Arabic", "Geeza Pro", Arial, sans-serif;
     }
-    .logo { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .topbar {
+      max-width: 720px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 0 0;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; }
     .logo-dot {
-      width: 36px; height: 36px; border-radius: 10px;
+      width: 34px; height: 34px; border-radius: 9px;
       background: var(--accent); display: flex; align-items: center; justify-content: center;
     }
-    .logo-dot span { color: #fff; font-size: 20px; font-weight: 800; }
-    .logo-name { font-size: 22px; font-weight: 700; }
+    .logo-dot span { color: #fff; font-size: 18px; font-weight: 800; }
+    .logo-name { font-size: 18px; font-weight: 700; }
+    .lang-toggle {
+      display: flex; background: #f3f4f6; border-radius: 20px; padding: 3px; gap: 2px;
+    }
+    .lang-btn {
+      border: none; background: transparent; cursor: pointer;
+      padding: 6px 14px; border-radius: 17px; font-size: 13px; font-weight: 600;
+      color: var(--muted); transition: all 0.18s;
+    }
+    .lang-btn.active { background: #fff; color: #1a1a1a; box-shadow: 0 1px 3px rgba(0,0,0,0.12); }
+    header {
+      max-width: 720px; margin: 28px auto 0;
+      border-bottom: 1px solid var(--border); padding-bottom: 24px; margin-bottom: 40px;
+    }
     h1 { font-size: 28px; font-weight: 800; margin-bottom: 4px; }
     .meta { font-size: 14px; color: var(--muted); }
-
     main { max-width: 720px; margin: 0 auto 80px; }
-    section { margin-bottom: 36px; }
+    section { margin-bottom: 32px; }
     h2 {
-      font-size: 18px; font-weight: 700;
-      margin-bottom: 12px;
-      padding-left: 12px;
-      border-left: 3px solid var(--accent);
+      font-size: 17px; font-weight: 700; margin-bottom: 10px;
+      padding-inline-start: 12px;
+      border-inline-start: 3px solid var(--accent);
     }
-    p { margin-bottom: 12px; font-size: 15px; color: #374151; }
-    ul { padding-left: 20px; margin-bottom: 12px; }
-    ul li { font-size: 15px; color: #374151; margin-bottom: 6px; }
+    p { margin-bottom: 10px; font-size: 15px; color: #374151; }
+    ul { padding-inline-start: 20px; margin-bottom: 10px; }
+    ul li { font-size: 15px; color: #374151; margin-bottom: 5px; }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    table {
-      width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px;
-    }
-    th {
-      text-align: left; padding: 10px 12px;
-      background: #f9fafb; border-bottom: 1px solid var(--border); font-weight: 600;
-    }
-    td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: #374151; }
-    .note {
-      background: #fff7ed; border: 1px solid #fed7aa;
-      border-radius: 10px; padding: 14px 16px; font-size: 14px;
-      color: #92400e; margin-bottom: 24px;
-    }
     footer {
-      border-top: 1px solid var(--border);
-      padding: 24px 0;
-      text-align: center;
-      font-size: 13px;
-      color: var(--muted);
-      max-width: 720px;
-      margin: 0 auto;
+      border-top: 1px solid var(--border); padding: 24px 0;
+      text-align: center; font-size: 13px; color: var(--muted);
+      max-width: 720px; margin: 0 auto;
     }
+    [data-lang] { display: none; }
+    [data-lang].visible { display: block; }
   </style>
 </head>
 <body>
 
-<header>
+<div class="topbar">
   <div class="logo">
     <div class="logo-dot"><span>Q</span></div>
     <span class="logo-name">Qooti</span>
   </div>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('ar')">AR</button>
+  </div>
+</div>
+
+
+<!-- ══════════ ENGLISH ══════════ -->
+<div data-lang="en" class="visible">
+<header>
   <h1>Privacy Policy</h1>
   <p class="meta">Last updated: April 13, 2025</p>
 </header>
-
 <main>
 
-  <div class="note">
-    Your privacy matters. This policy explains exactly what data Qooti collects, why we collect it, and how it is used and protected.
-  </div>
-
   <section>
-    <h2>1. Who We Are</h2>
-    <p>Qooti is a calorie and nutrition tracking app. When we say "Qooti," "we," "us," or "our," we mean the team behind the Qooti app. If you have questions about this policy, reach us on Instagram: <a href="https://instagram.com/useqooti" target="_blank">@useqooti</a>.</p>
+    <h2>1. Introduction</h2>
+    <p>At Qooti, we are committed to protecting your privacy and handling your personal data responsibly. This Privacy Policy explains how we collect, use, store, and protect your information when you use our application. It has been prepared in accordance with the Personal Data Protection Law of the Kingdom of Saudi Arabia (Royal Decree No. M/19) and its implementing regulations.</p>
   </section>
 
   <section>
     <h2>2. Data We Collect</h2>
-    <p>We collect only the data needed to deliver the app's features:</p>
-
-    <table>
-      <thead>
-        <tr><th>Category</th><th>Data</th><th>Purpose</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Account</strong></td>
-          <td>Name, email address</td>
-          <td>Authentication and account management</td>
-        </tr>
-        <tr>
-          <td><strong>Profile</strong></td>
-          <td>Age, gender, height, weight, activity level, dietary goal</td>
-          <td>Calculating your personalized calorie and nutrition targets</td>
-        </tr>
-        <tr>
-          <td><strong>Food Logs</strong></td>
-          <td>Meals, food names, portions, nutritional values, timestamps</td>
-          <td>Tracking your daily intake and progress</td>
-        </tr>
-        <tr>
-          <td><strong>Food Photos</strong></td>
-          <td>Images captured for AI food analysis</td>
-          <td>Identifying food and estimating nutrition via AI</td>
-        </tr>
-        <tr>
-          <td><strong>Barcode Scans</strong></td>
-          <td>Product barcodes</td>
-          <td>Fetching nutritional information for packaged foods</td>
-        </tr>
-        <tr>
-          <td><strong>Progress Photos</strong></td>
-          <td>Body photos you choose to capture</td>
-          <td>Stored locally and/or in your account for your personal tracking</td>
-        </tr>
-        <tr>
-          <td><strong>Weight Logs</strong></td>
-          <td>Body weight entries over time</td>
-          <td>Tracking weight progress</td>
-        </tr>
-        <tr>
-          <td><strong>Apple Health</strong></td>
-          <td>Steps, active energy, weight (if you grant permission)</td>
-          <td>Enriching your nutrition and activity view</td>
-        </tr>
-        <tr>
-          <td><strong>Device</strong></td>
-          <td>Device type, OS version, app version, crash logs</td>
-          <td>Debugging and improving app stability</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p>We do <strong>not</strong> collect payment information — all transactions are handled by Apple and governed by Apple's privacy policy.</p>
+    <p>We collect only the personal data necessary to provide and improve our services. This may include:</p>
+    <ul>
+      <li><strong>Account information</strong> — such as your name and email address, used to create and manage your account</li>
+      <li><strong>Personal profile data</strong> — such as age, gender, height, weight, activity level, and dietary goals, used to calculate your personalized nutrition targets</li>
+      <li><strong>Usage data</strong> — such as food logs, meal records, and nutritional entries you create within the application</li>
+      <li><strong>Media</strong> — such as photos you choose to capture for food analysis or personal progress tracking</li>
+      <li><strong>Health data</strong> — such as step counts or body weight, if you choose to connect the application with your device's health platform</li>
+      <li><strong>Technical data</strong> — such as device type, operating system version, and anonymized crash reports, used solely to maintain and improve app performance</li>
+    </ul>
+    <p>We do not collect payment or financial information. All transactions are handled directly by the platform provider (Apple App Store).</p>
   </section>
 
   <section>
     <h2>3. How We Use Your Data</h2>
+    <p>Your personal data is used solely to operate and improve the application. Specifically, we use it to:</p>
     <ul>
-      <li>To provide and operate the Qooti app and its features</li>
-      <li>To calculate your calorie targets, macros, and nutritional summaries</li>
-      <li>To analyze food photos using AI and return nutritional estimates</li>
-      <li>To sync your data across devices through your account</li>
-      <li>To send you reminders and notifications (only with your permission)</li>
-      <li>To detect and fix bugs and improve app performance</li>
+      <li>Provide the core features of the application, including calorie tracking and nutrition analysis</li>
+      <li>Personalize your experience based on your profile and goals</li>
+      <li>Sync your data securely across your devices</li>
+      <li>Send you optional reminders or notifications, only with your prior consent</li>
+      <li>Diagnose technical issues and improve the performance and stability of the application</li>
     </ul>
-    <p>We do <strong>not</strong> use your personal data for advertising or sell it to third parties.</p>
+    <p>We do not use your personal data for advertising purposes, and we do not sell your data to third parties.</p>
   </section>
 
   <section>
-    <h2>4. Third-Party Services</h2>
-    <p>Qooti uses the following trusted third-party services to operate:</p>
-    <table>
-      <thead>
-        <tr><th>Service</th><th>Purpose</th><th>Data Shared</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Supabase</strong></td>
-          <td>Backend database and authentication</td>
-          <td>Account info, food logs, weight logs, profile data</td>
-        </tr>
-        <tr>
-          <td><strong>OpenAI</strong></td>
-          <td>AI-powered food analysis</td>
-          <td>Food photos and text descriptions (not linked to your identity)</td>
-        </tr>
-        <tr>
-          <td><strong>RevenueCat</strong></td>
-          <td>Subscription management</td>
-          <td>Anonymized purchase and subscription status</td>
-        </tr>
-        <tr>
-          <td><strong>Apple</strong></td>
-          <td>App Store payments and Apple Health integration</td>
-          <td>Governed by Apple's Privacy Policy</td>
-        </tr>
-      </tbody>
-    </table>
-    <p>All third-party providers are contractually required to handle your data securely and only for the purposes described above.</p>
-  </section>
-
-  <section>
-    <h2>5. Food Photos & AI Analysis</h2>
-    <p>When you use the AI food analysis feature, your photo is sent to OpenAI's API for processing. The photo is used solely to identify the food and estimate its nutritional content — it is not stored by OpenAI beyond the duration of the API request, and it is not linked to your personal identity.</p>
-    <p>Progress photos you take are stored securely in your account and are never shared with third parties.</p>
-  </section>
-
-  <section>
-    <h2>6. Apple Health</h2>
-    <p>Qooti may request access to Apple Health data (such as steps and body weight) to enhance your tracking experience. This integration is entirely optional. You control what data Qooti can read or write through your iPhone's Health app settings. We never share your Health data with any third party.</p>
-  </section>
-
-  <section>
-    <h2>7. Data Security</h2>
+    <h2>4. Sharing of Data</h2>
+    <p>We do not share your personal data with third parties except in the following limited circumstances:</p>
     <ul>
-      <li>All data transmitted between the app and our servers is encrypted using HTTPS/TLS</li>
-      <li>Your account is protected by secure authentication</li>
-      <li>We regularly review our security practices and update them as needed</li>
+      <li><strong>Service providers:</strong> We work with trusted technical service providers (such as cloud hosting and infrastructure providers) who assist us in operating the application. These providers are contractually bound to process your data only as directed by us and in accordance with applicable law.</li>
+      <li><strong>Legal compliance:</strong> We may disclose your data when required by law or in response to a valid legal order from a competent authority.</li>
+      <li><strong>Protection of rights:</strong> We may share data when necessary to protect our rights, property, or the safety of our users.</li>
     </ul>
-    <p>No system is 100% secure. While we take reasonable precautions, we cannot guarantee absolute security of your data.</p>
+    <p>Any cross-border transfer of personal data is conducted only to countries that provide an adequate level of data protection, or with appropriate contractual safeguards in place, in compliance with Saudi PDPL requirements.</p>
   </section>
 
   <section>
-    <h2>8. Data Retention</h2>
-    <p>We retain your data for as long as your account is active. If you delete your account, all personal data associated with it is permanently deleted from our servers within 30 days. Anonymized or aggregated data that cannot be linked to you may be retained for analytical purposes.</p>
+    <h2>5. Sensitive Data</h2>
+    <p>Health-related information — including body weight, dietary data, and any health metrics — is considered sensitive personal data under Saudi law. We treat such data with the highest level of care, process it only as necessary to deliver the application's core features, and do not share it with any party beyond what is described in this policy.</p>
   </section>
 
   <section>
-    <h2>9. Your Rights</h2>
-    <p>You have the right to:</p>
+    <h2>6. Data Security</h2>
+    <p>We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, loss, alteration, or disclosure. These measures include encryption of data in transit and access controls on our systems. In the event of a data breach that affects your personal data, we will notify the relevant authority and, where required, inform you without undue delay.</p>
+  </section>
+
+  <section>
+    <h2>7. Data Retention</h2>
+    <p>We retain your personal data for as long as your account remains active or as necessary to provide our services. Upon account deletion, your personal data will be permanently removed from our systems within 30 days, except where retention is required by law.</p>
+  </section>
+
+  <section>
+    <h2>8. Your Rights</h2>
+    <p>In accordance with the Personal Data Protection Law of the Kingdom of Saudi Arabia, you have the following rights regarding your personal data:</p>
     <ul>
-      <li><strong>Access</strong> — Request a copy of the personal data we hold about you</li>
-      <li><strong>Correction</strong> — Update or correct inaccurate data through the app's profile settings</li>
-      <li><strong>Deletion</strong> — Delete your account and all associated data directly from the app</li>
-      <li><strong>Portability</strong> — Request an export of your data</li>
+      <li><strong>Right to access</strong> — you may request a copy of the personal data we hold about you</li>
+      <li><strong>Right to correction</strong> — you may request correction of any inaccurate or incomplete data</li>
+      <li><strong>Right to deletion</strong> — you may request deletion of your personal data, subject to any legal retention obligations</li>
+      <li><strong>Right to data portability</strong> — you may request a copy of your data in a structured format</li>
+      <li><strong>Right to withdraw consent</strong> — where processing is based on your consent, you may withdraw it at any time without affecting the lawfulness of prior processing</li>
     </ul>
-    <p>To exercise any of these rights, contact us on Instagram: <a href="https://instagram.com/useqooti" target="_blank">@useqooti</a>.</p>
+    <p>You can exercise most of these rights directly through the application's settings. For further requests, contact us via Instagram: <a href="https://instagram.com/useqooti" target="_blank">@useqooti</a></p>
   </section>
 
   <section>
-    <h2>10. Children's Privacy</h2>
-    <p>Qooti is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal data, please contact us and we will delete it promptly.</p>
+    <h2>9. Children's Privacy</h2>
+    <p>Our application is not directed at children under the age of 13. We do not knowingly collect personal data from children under this age. If we become aware that such data has been collected, we will take steps to delete it promptly.</p>
   </section>
 
   <section>
-    <h2>11. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. When we do, we will update the date at the top of this page. For significant changes, we will notify you through the app. Continued use of the App after changes means you accept the updated policy.</p>
+    <h2>10. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. We will notify you of any material changes through the application and update the date at the top of this page. Continued use of the application after changes take effect constitutes your acceptance of the updated policy.</p>
   </section>
 
   <section>
-    <h2>12. Contact Us</h2>
-    <p>Questions, concerns, or requests about your data? Contact us:</p>
-    <ul>
-      <li>Instagram: <a href="https://instagram.com/useqooti" target="_blank">@useqooti</a></li>
-    </ul>
+    <h2>11. Contact Us</h2>
+    <p>If you have any questions or concerns about this Privacy Policy or how your data is handled, please contact us via Instagram: <a href="https://instagram.com/useqooti" target="_blank">@useqooti</a></p>
   </section>
 
 </main>
+<footer>&copy; 2025 Qooti. All rights reserved. &nbsp;|&nbsp; <a href="terms.html">Terms of Service</a></footer>
+</div>
 
-<footer>
-  &copy; 2025 Qooti. All rights reserved. &nbsp;|&nbsp;
-  <a href="terms.html">Terms of Service</a>
-</footer>
+
+<!-- ══════════ ARABIC ══════════ -->
+<div data-lang="ar">
+<header>
+  <h1>سياسة الخصوصية</h1>
+  <p class="meta">آخر تحديث: 13 أبريل 2025</p>
+</header>
+<main>
+
+  <section>
+    <h2>١. مقدمة</h2>
+    <p>يلتزم Qooti بحماية خصوصيتك والتعامل مع بياناتك الشخصية بمسؤولية. توضح سياسة الخصوصية هذه كيفية جمعنا لمعلوماتك واستخدامها وتخزينها وحمايتها عند استخدامك للتطبيق. وقد أُعدت هذه السياسة وفقًا لنظام حماية البيانات الشخصية في المملكة العربية السعودية (المرسوم الملكي رقم م/19) ولوائحه التنفيذية.</p>
+  </section>
+
+  <section>
+    <h2>٢. البيانات التي نجمعها</h2>
+    <p>نجمع البيانات الشخصية اللازمة فقط لتقديم خدماتنا وتحسينها. وقد تشمل:</p>
+    <ul>
+      <li><strong>معلومات الحساب</strong> — كالاسم والبريد الإلكتروني، لإنشاء حسابك وإدارته</li>
+      <li><strong>بيانات الملف الشخصي</strong> — كالعمر والجنس والطول والوزن ومستوى النشاط والهدف الغذائي، لحساب أهدافك الغذائية الشخصية</li>
+      <li><strong>بيانات الاستخدام</strong> — كسجلات الطعام والوجبات والإدخالات الغذائية التي تنشئها في التطبيق</li>
+      <li><strong>الوسائط</strong> — كالصور التي تختار التقاطها لتحليل الطعام أو تتبع تقدمك الشخصي</li>
+      <li><strong>البيانات الصحية</strong> — كعدد الخطوات أو وزن الجسم، إذا اخترت ربط التطبيق بمنصة الصحة على جهازك</li>
+      <li><strong>البيانات التقنية</strong> — كنوع الجهاز وإصدار نظام التشغيل وتقارير الأعطال المجهولة، وتُستخدم حصرًا للحفاظ على أداء التطبيق وتحسينه</li>
+    </ul>
+    <p>لا نجمع معلومات الدفع أو البيانات المالية، إذ تتولى معالجة جميع المعاملات مزيد المنصة (متجر Apple) مباشرةً.</p>
+  </section>
+
+  <section>
+    <h2>٣. كيف نستخدم بياناتك</h2>
+    <p>تُستخدم بياناتك الشخصية حصرًا لتشغيل التطبيق وتحسينه، وتحديدًا من أجل:</p>
+    <ul>
+      <li>توفير الميزات الأساسية للتطبيق، بما فيها تتبع السعرات الحرارية وتحليل التغذية</li>
+      <li>تخصيص تجربتك بناءً على ملفك الشخصي وأهدافك</li>
+      <li>مزامنة بياناتك بأمان عبر أجهزتك</li>
+      <li>إرسال تذكيرات أو إشعارات اختيارية بموافقتك المسبقة فقط</li>
+      <li>تشخيص المشكلات التقنية وتحسين أداء التطبيق واستقراره</li>
+    </ul>
+    <p>لا نستخدم بياناتك الشخصية لأغراض إعلانية، ولا نبيع بياناتك لأطراف ثالثة.</p>
+  </section>
+
+  <section>
+    <h2>٤. مشاركة البيانات</h2>
+    <p>لا نشارك بياناتك الشخصية مع أطراف ثالثة إلا في الحالات المحدودة التالية:</p>
+    <ul>
+      <li><strong>مزودو الخدمة:</strong> نتعامل مع مزودي خدمات تقنية موثوقين (كمزودي الاستضافة السحابية والبنية التحتية) لمساعدتنا في تشغيل التطبيق. وهؤلاء ملزمون تعاقديًا بمعالجة بياناتك وفق تعليماتنا وطبقًا للقانون المعمول به.</li>
+      <li><strong>الامتثال القانوني:</strong> قد نُفصح عن بياناتك عند الاقتضاء القانوني أو استجابةً لأمر قانوني صادر من جهة مختصة.</li>
+      <li><strong>حماية الحقوق:</strong> قد نشارك البيانات عند الضرورة لحماية حقوقنا أو ممتلكاتنا أو سلامة مستخدمينا.</li>
+    </ul>
+    <p>يجري أي نقل عابر للحدود للبيانات الشخصية إلى دول توفر مستوى كافيًا من الحماية، أو بضمانات تعاقدية مناسبة، امتثالًا لمتطلبات نظام حماية البيانات الشخصية.</p>
+  </section>
+
+  <section>
+    <h2>٥. البيانات الحساسة</h2>
+    <p>تُعدّ المعلومات الصحية — بما فيها وزن الجسم والبيانات الغذائية وأي مؤشرات صحية — بيانات شخصية حساسة وفق النظام السعودي. نتعامل مع هذه البيانات بأعلى درجات العناية، ونعالجها فقط بالقدر اللازم لتقديم الميزات الأساسية للتطبيق، ولا نشاركها مع أي جهة تتجاوز ما هو موضح في هذه السياسة.</p>
+  </section>
+
+  <section>
+    <h2>٦. أمان البيانات</h2>
+    <p>نتخذ تدابير تقنية وتنظيمية مناسبة لحماية بياناتك الشخصية من الوصول غير المصرح به أو الفقدان أو التعديل أو الإفصاح. وتشمل هذه التدابير تشفير البيانات أثناء النقل وضوابط الوصول إلى أنظمتنا. في حال وقوع اختراق للبيانات يمس بياناتك الشخصية، سنُخطر الجهة المختصة، وإذا اقتضى الأمر سنُبلغك دون تأخير غير مبرر.</p>
+  </section>
+
+  <section>
+    <h2>٧. الاحتفاظ بالبيانات</h2>
+    <p>نحتفظ ببياناتك الشخصية طالما حسابك نشط أو بالقدر اللازم لتقديم خدماتنا. عند حذف الحساب، تُحذف بياناتك الشخصية نهائيًا من أنظمتنا خلال 30 يومًا، إلا في الحالات التي يستوجب فيها القانون الاحتفاظ بها.</p>
+  </section>
+
+  <section>
+    <h2>٨. حقوقك</h2>
+    <p>وفقًا لنظام حماية البيانات الشخصية في المملكة العربية السعودية، تتمتع بالحقوق التالية فيما يخص بياناتك الشخصية:</p>
+    <ul>
+      <li><strong>حق الاطلاع</strong> — يمكنك طلب نسخة من البيانات الشخصية التي نحتفظ بها عنك</li>
+      <li><strong>حق التصحيح</strong> — يمكنك طلب تصحيح أي بيانات غير دقيقة أو منقوصة</li>
+      <li><strong>حق الحذف</strong> — يمكنك طلب حذف بياناتك الشخصية، مع مراعاة الالتزامات القانونية بالاحتفاظ بها</li>
+      <li><strong>حق قابلية نقل البيانات</strong> — يمكنك طلب نسخة من بياناتك بتنسيق منظم</li>
+      <li><strong>حق سحب الموافقة</strong> — حيثما تستند المعالجة إلى موافقتك، يمكنك سحبها في أي وقت دون أن يؤثر ذلك على مشروعية المعالجة السابقة</li>
+    </ul>
+    <p>يمكنك ممارسة معظم هذه الحقوق مباشرةً من إعدادات التطبيق. لأي طلبات إضافية، تواصل معنا عبر إنستغرام: <a href="https://instagram.com/useqooti" target="_blank">@useqooti</a></p>
+  </section>
+
+  <section>
+    <h2>٩. خصوصية الأطفال</h2>
+    <p>لا يستهدف تطبيقنا الأطفال دون سن 13 عامًا، ولا نجمع بياناتهم الشخصية عن قصد. إذا علمنا بجمع بيانات من طفل دون هذا السن، سنتخذ الخطوات اللازمة لحذفها فورًا.</p>
+  </section>
+
+  <section>
+    <h2>١٠. التغييرات على هذه السياسة</h2>
+    <p>قد نحدّث سياسة الخصوصية هذه من وقت لآخر. سنخطرك بأي تغييرات جوهرية عبر التطبيق ونحدّث التاريخ أعلاه. استمرارك في استخدام التطبيق بعد سريان التغييرات يُعدّ قبولًا للسياسة المحدثة.</p>
+  </section>
+
+  <section>
+    <h2>١١. التواصل معنا</h2>
+    <p>لأي أسئلة أو استفسارات بشأن سياسة الخصوصية هذه أو طريقة التعامل مع بياناتك، يُرجى التواصل معنا عبر إنستغرام: <a href="https://instagram.com/useqooti" target="_blank">@useqooti</a></p>
+  </section>
+
+</main>
+<footer>&copy; 2025 Qooti. جميع الحقوق محفوظة. &nbsp;|&nbsp; <a href="terms.html">شروط الخدمة</a></footer>
+</div>
+
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.classList.toggle('visible', el.dataset.lang === lang);
+    });
+    document.documentElement.lang = lang;
+    document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
+    });
+    localStorage.setItem('qooti-lang', lang);
+  }
+  const saved = localStorage.getItem('qooti-lang');
+  if (saved && saved !== 'en') setLang(saved);
+</script>
 
 </body>
 </html>

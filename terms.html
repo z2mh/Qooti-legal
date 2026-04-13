@@ -5,189 +5,266 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Terms of Service – Qooti</title>
   <style>
-    :root {
-      --accent: #FF751F;
-      --text: #1a1a1a;
-      --muted: #6b7280;
-      --border: #e5e7eb;
-      --bg: #ffffff;
-    }
+    :root { --accent: #FF751F; --border: #e5e7eb; --muted: #6b7280; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.7;
-      padding: 0 16px;
+      background: #fff; color: #1a1a1a; line-height: 1.8; padding: 0 16px;
     }
-    header {
-      border-bottom: 1px solid var(--border);
-      padding: 32px 0 24px;
-      margin-bottom: 40px;
-      max-width: 720px;
-      margin-left: auto;
-      margin-right: auto;
+    body[dir="rtl"] {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Arabic", "Geeza Pro", Arial, sans-serif;
     }
-    .logo { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .topbar {
+      max-width: 720px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 0 0;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; }
     .logo-dot {
-      width: 36px; height: 36px; border-radius: 10px;
+      width: 34px; height: 34px; border-radius: 9px;
       background: var(--accent); display: flex; align-items: center; justify-content: center;
     }
-    .logo-dot span { color: #fff; font-size: 20px; font-weight: 800; }
-    .logo-name { font-size: 22px; font-weight: 700; }
+    .logo-dot span { color: #fff; font-size: 18px; font-weight: 800; }
+    .logo-name { font-size: 18px; font-weight: 700; }
+    .lang-toggle {
+      display: flex; background: #f3f4f6; border-radius: 20px; padding: 3px; gap: 2px;
+    }
+    .lang-btn {
+      border: none; background: transparent; cursor: pointer;
+      padding: 6px 14px; border-radius: 17px; font-size: 13px; font-weight: 600;
+      color: var(--muted); transition: all 0.18s;
+    }
+    .lang-btn.active { background: #fff; color: #1a1a1a; box-shadow: 0 1px 3px rgba(0,0,0,0.12); }
+    header {
+      max-width: 720px; margin: 28px auto 0;
+      border-bottom: 1px solid var(--border); padding-bottom: 24px; margin-bottom: 40px;
+    }
     h1 { font-size: 28px; font-weight: 800; margin-bottom: 4px; }
     .meta { font-size: 14px; color: var(--muted); }
-
     main { max-width: 720px; margin: 0 auto 80px; }
-    section { margin-bottom: 36px; }
+    section { margin-bottom: 32px; }
     h2 {
-      font-size: 18px; font-weight: 700;
-      margin-bottom: 12px;
-      padding-left: 12px;
-      border-left: 3px solid var(--accent);
+      font-size: 17px; font-weight: 700; margin-bottom: 10px;
+      padding-inline-start: 12px;
+      border-inline-start: 3px solid var(--accent);
     }
-    p { margin-bottom: 12px; font-size: 15px; color: #374151; }
-    ul { padding-left: 20px; margin-bottom: 12px; }
-    ul li { font-size: 15px; color: #374151; margin-bottom: 6px; }
+    p { margin-bottom: 10px; font-size: 15px; color: #374151; }
+    ul { padding-inline-start: 20px; margin-bottom: 10px; }
+    ul li { font-size: 15px; color: #374151; margin-bottom: 5px; }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .note {
-      background: #fff7ed; border: 1px solid #fed7aa;
-      border-radius: 10px; padding: 14px 16px; font-size: 14px;
-      color: #92400e; margin-bottom: 24px;
-    }
     footer {
-      border-top: 1px solid var(--border);
-      padding: 24px 0;
-      text-align: center;
-      font-size: 13px;
-      color: var(--muted);
-      max-width: 720px;
-      margin: 0 auto;
+      border-top: 1px solid var(--border); padding: 24px 0;
+      text-align: center; font-size: 13px; color: var(--muted);
+      max-width: 720px; margin: 0 auto;
     }
+    [data-lang] { display: none; }
+    [data-lang].visible { display: block; }
   </style>
 </head>
 <body>
 
-<header>
+<div class="topbar">
   <div class="logo">
     <div class="logo-dot"><span>Q</span></div>
     <span class="logo-name">Qooti</span>
   </div>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('ar')">AR</button>
+  </div>
+</div>
+
+
+<!-- ══════════ ENGLISH ══════════ -->
+<div data-lang="en" class="visible">
+<header>
   <h1>Terms of Service</h1>
   <p class="meta">Last updated: April 13, 2025</p>
 </header>
-
 <main>
 
-  <div class="note">
-    Please read these Terms of Service carefully before using the Qooti app. By creating an account or using the app, you agree to be bound by these terms.
-  </div>
-
   <section>
-    <h2>1. Acceptance of Terms</h2>
-    <p>These Terms of Service ("Terms") govern your use of Qooti ("the App"), operated by Qooti ("we," "us," or "our"). By downloading, installing, or using the App, you agree to these Terms. If you do not agree, do not use the App.</p>
+    <h2>1. Introduction</h2>
+    <p>Welcome to Qooti. By accessing or using our application, you agree to comply with and be bound by these Terms of Service. Please read them carefully. If you do not agree to these terms, you may not use the application.</p>
   </section>
 
   <section>
     <h2>2. Eligibility</h2>
-    <p>You must be at least 13 years old to use Qooti. By using the App, you represent and warrant that you meet this age requirement and that all information you provide is accurate and complete.</p>
+    <p>You must be at least 13 years of age to use Qooti. By using the application, you represent that you meet this requirement and that all information you provide is accurate and truthful.</p>
   </section>
 
   <section>
-    <h2>3. Subscription & Payments</h2>
-    <p>Qooti is a fully subscription-based app. Access to all features requires an active subscription. We offer:</p>
-    <ul>
-      <li><strong>Free Trial:</strong> New users may be offered a free trial period before billing begins. The trial duration is stated at the time of sign-up.</li>
-      <li><strong>Yearly Subscription:</strong> Billed annually after the trial period ends.</li>
-      <li><strong>Weekly Subscription:</strong> Billed weekly with no trial period.</li>
-    </ul>
-    <p>Subscriptions automatically renew unless canceled at least 24 hours before the end of the current billing period. You can manage or cancel your subscription at any time through your Apple ID settings. Cancellation takes effect at the end of the current billing period — no refunds are issued for unused time.</p>
-    <p>All payments are processed by Apple through the App Store. We do not store your payment information.</p>
+    <h2>3. User Account</h2>
+    <p>You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account. We reserve the right to suspend or terminate accounts that violate these terms.</p>
   </section>
 
   <section>
-    <h2>4. Your Account</h2>
-    <p>You are responsible for maintaining the confidentiality of your account credentials and for all activity that occurs under your account. You agree to:</p>
-    <ul>
-      <li>Provide accurate personal information during registration</li>
-      <li>Not share your account with others</li>
-      <li>Notify us immediately of any unauthorized use of your account</li>
-    </ul>
+    <h2>4. Subscriptions & Payments</h2>
+    <p>Qooti operates on a subscription basis. Access to the application's features requires an active paid subscription. New users may be offered a free trial period, the duration of which is displayed at the time of sign-up.</p>
+    <p>Subscriptions automatically renew at the end of each billing period unless canceled at least 24 hours before the renewal date. You may manage or cancel your subscription at any time through your device's account settings. Payments are processed by the platform provider (Apple App Store), and we do not store any payment information. Refunds are subject to the platform provider's refund policy.</p>
   </section>
 
   <section>
     <h2>5. Acceptable Use</h2>
-    <p>You agree not to:</p>
+    <p>You agree to use Qooti only for lawful purposes and in a manner that does not infringe the rights of others. You must not:</p>
     <ul>
-      <li>Use the App for any unlawful purpose</li>
-      <li>Attempt to reverse engineer, decompile, or disassemble the App</li>
-      <li>Reproduce, copy, or redistribute any part of the App or its content</li>
-      <li>Upload content that is harmful, offensive, or violates any third-party rights</li>
-      <li>Use the App to interfere with or disrupt our services or servers</li>
+      <li>Attempt to gain unauthorized access to any part of the application or its related systems</li>
+      <li>Copy, reproduce, or distribute any content from the application without prior written consent</li>
+      <li>Use the application to transmit any harmful, offensive, or unlawful content</li>
+      <li>Interfere with the normal operation of the application or its servers</li>
+      <li>Attempt to reverse engineer or decompile any part of the application</li>
     </ul>
   </section>
 
   <section>
     <h2>6. Intellectual Property</h2>
-    <p>All content, features, and functionality of the App — including but not limited to text, graphics, logos, icons, and software — are the exclusive property of Qooti and are protected by applicable intellectual property laws. You may not use any Qooti trademarks or branding without our prior written consent.</p>
+    <p>All content, design, trademarks, and intellectual property within Qooti are owned by or licensed to us and are protected under applicable laws. Nothing in these terms grants you any right to use our intellectual property without our express written permission.</p>
   </section>
 
   <section>
-    <h2>7. Health & Nutritional Information Disclaimer</h2>
-    <p>Qooti is a calorie and nutrition tracking tool designed to support your personal health goals. It is <strong>not</strong> a medical application and does not provide medical advice, diagnosis, or treatment.</p>
-    <ul>
-      <li>Nutritional information is estimated and may not be perfectly accurate</li>
-      <li>AI-generated food analysis is an approximation and should not be relied upon for medical decisions</li>
-      <li>Always consult a qualified healthcare professional before making significant changes to your diet or exercise routine</li>
-      <li>We are not liable for any health outcomes resulting from use of information provided by the App</li>
-    </ul>
+    <h2>7. Health & Nutritional Information</h2>
+    <p>Qooti is a personal nutrition and calorie tracking tool. It is not a medical application and does not provide medical advice, diagnosis, or treatment. Nutritional data provided within the application is for informational purposes only and may not always be accurate.</p>
+    <p>You should consult a qualified healthcare professional before making any significant changes to your diet or lifestyle. We are not liable for any health outcomes resulting from reliance on information provided by the application.</p>
   </section>
 
   <section>
-    <h2>8. User-Generated Content</h2>
-    <p>You retain ownership of content you create or upload (such as food descriptions or progress photos). By uploading content, you grant us a limited license to process and store that content solely for the purpose of providing the App's features to you. We do not sell or share your personal content with third parties except as described in our Privacy Policy.</p>
+    <h2>8. Disclaimer of Warranties</h2>
+    <p>The application is provided on an "as is" and "as available" basis. We make no warranties, express or implied, regarding the reliability, accuracy, or availability of the application. We do not guarantee that the application will be free of errors or interruptions.</p>
   </section>
 
   <section>
-    <h2>9. Third-Party Services</h2>
-    <p>The App integrates with third-party services including Apple Health and payment processing through Apple. Your use of these integrations is also subject to the respective third-party terms of service. We are not responsible for the practices of any third-party service.</p>
+    <h2>9. Limitation of Liability</h2>
+    <p>To the fullest extent permitted by applicable law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or in connection with your use of the application, even if we have been advised of the possibility of such damages.</p>
   </section>
 
   <section>
-    <h2>10. Service Modifications & Termination</h2>
-    <p>We reserve the right to modify, suspend, or discontinue any part of the App at any time. We may also terminate or suspend your account if you violate these Terms. Upon termination, your right to use the App ceases immediately.</p>
+    <h2>10. Service Modifications</h2>
+    <p>We reserve the right to modify, suspend, or discontinue any aspect of the application at any time, with or without notice. We shall not be liable to you or any third party for any such modification, suspension, or discontinuance.</p>
   </section>
 
   <section>
-    <h2>11. Limitation of Liability</h2>
-    <p>To the maximum extent permitted by law, Qooti and its team shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the App, even if we have been advised of the possibility of such damages.</p>
+    <h2>11. Changes to These Terms</h2>
+    <p>We may update these Terms of Service from time to time. Changes will be effective upon posting. Your continued use of the application after any changes constitutes your acceptance of the updated terms. We will notify you of significant changes through the application.</p>
   </section>
 
   <section>
-    <h2>12. Changes to These Terms</h2>
-    <p>We may update these Terms from time to time. When we do, we will update the date at the top of this page and notify you through the App. Continued use of the App after changes constitutes your acceptance of the updated Terms.</p>
+    <h2>12. Governing Law</h2>
+    <p>These Terms of Service are governed by and construed in accordance with the laws of the Kingdom of Saudi Arabia, including the E-Commerce Law and its implementing regulations. Any disputes arising out of or relating to these terms shall be subject to the exclusive jurisdiction of the competent courts in the Kingdom of Saudi Arabia.</p>
   </section>
 
   <section>
-    <h2>13. Governing Law</h2>
-    <p>These Terms are governed by and construed in accordance with the laws of the Kingdom of Saudi Arabia. Any disputes shall be resolved in the competent courts of Saudi Arabia.</p>
-  </section>
-
-  <section>
-    <h2>14. Contact Us</h2>
-    <p>If you have questions about these Terms, please contact us:</p>
-    <ul>
-      <li>Instagram: <a href="https://instagram.com/useqooti" target="_blank">@useqooti</a></li>
-    </ul>
+    <h2>13. Contact</h2>
+    <p>If you have any questions about these terms, please contact us via Instagram: <a href="https://instagram.com/useqooti" target="_blank">@useqooti</a></p>
   </section>
 
 </main>
+<footer>&copy; 2025 Qooti. All rights reserved. &nbsp;|&nbsp; <a href="privacy.html">Privacy Policy</a></footer>
+</div>
 
-<footer>
-  &copy; 2025 Qooti. All rights reserved. &nbsp;|&nbsp;
-  <a href="privacy.html">Privacy Policy</a>
-</footer>
+
+<!-- ══════════ ARABIC ══════════ -->
+<div data-lang="ar">
+<header>
+  <h1>شروط الخدمة</h1>
+  <p class="meta">آخر تحديث: 13 أبريل 2025</p>
+</header>
+<main>
+
+  <section>
+    <h2>١. مقدمة</h2>
+    <p>مرحبًا بك في Qooti. باستخدامك للتطبيق أو الوصول إليه، فإنك توافق على الالتزام بشروط الخدمة هذه والتقيد بها. يُرجى قراءتها بعناية. وإن كنت لا توافق على هذه الشروط، فلا يحق لك استخدام التطبيق.</p>
+  </section>
+
+  <section>
+    <h2>٢. شروط الأهلية</h2>
+    <p>يجب أن يكون عمرك 13 عامًا على الأقل لاستخدام Qooti. باستخدامك للتطبيق، فإنك تُقر باستيفائك هذا الشرط وبصحة جميع المعلومات التي تقدمها.</p>
+  </section>
+
+  <section>
+    <h2>٣. حساب المستخدم</h2>
+    <p>أنت مسؤول عن الحفاظ على سرية بيانات حسابك وعن جميع الأنشطة التي تجري من خلاله. توافق على إخطارنا فورًا بأي استخدام غير مصرح به لحسابك. نحتفظ بالحق في تعليق الحسابات أو إنهائها في حال انتهاك هذه الشروط.</p>
+  </section>
+
+  <section>
+    <h2>٤. الاشتراكات والمدفوعات</h2>
+    <p>يعمل Qooti على أساس الاشتراك. يستلزم الوصول إلى ميزات التطبيق اشتراكًا مدفوعًا ساريًا. قد يحصل المستخدمون الجدد على فترة تجريبية مجانية تُحدد مدتها عند التسجيل.</p>
+    <p>تتجدد الاشتراكات تلقائيًا في نهاية كل فترة فوترة ما لم يُلغَ الاشتراك قبل 24 ساعة على الأقل من تاريخ التجديد. يمكنك إدارة اشتراكك أو إلغاؤه في أي وقت من إعدادات الجهاز. تتم معالجة المدفوعات من قِبَل مزود المنصة (متجر Apple)، ولا نحتفظ بأي معلومات للدفع. تخضع استردادات المبالغ لسياسة مزود المنصة.</p>
+  </section>
+
+  <section>
+    <h2>٥. الاستخدام المقبول</h2>
+    <p>توافق على استخدام Qooti لأغراض مشروعة فحسب وبما لا يُلحق الضرر بحقوق الآخرين. يُحظر عليك:</p>
+    <ul>
+      <li>محاولة الوصول غير المصرح به إلى أي جزء من التطبيق أو أنظمته المرتبطة</li>
+      <li>نسخ أي محتوى من التطبيق أو إعادة توزيعه دون إذن كتابي مسبق</li>
+      <li>استخدام التطبيق لنقل أي محتوى ضار أو مسيء أو غير مشروع</li>
+      <li>التدخل في التشغيل الاعتيادي للتطبيق أو خوادمه</li>
+      <li>محاولة إجراء هندسة عكسية أو تفكيك أي جزء من التطبيق</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>٦. الملكية الفكرية</h2>
+    <p>جميع المحتويات والتصاميم والعلامات التجارية والملكية الفكرية داخل Qooti مملوكة لنا أو مرخصة لنا وتخضع لحماية القوانين المعمول بها. لا يمنحك أي شيء في هذه الشروط الحق في استخدام ملكيتنا الفكرية دون إذن كتابي صريح.</p>
+  </section>
+
+  <section>
+    <h2>٧. المعلومات الصحية والغذائية</h2>
+    <p>Qooti أداة شخصية لتتبع التغذية والسعرات الحرارية، وليس تطبيقًا طبيًا ولا يُقدم استشارات طبية أو تشخيصات أو علاجات. البيانات الغذائية المقدمة في التطبيق لأغراض إعلامية فحسب وقد لا تكون دقيقة في جميع الأحوال.</p>
+    <p>يُنصح باستشارة متخصص صحي مؤهل قبل إجراء أي تغييرات جوهرية على نظامك الغذائي أو نمط حياتك. لا نتحمل أي مسؤولية عن أي نتائج صحية تنشأ عن الاعتماد على المعلومات التي يوفرها التطبيق.</p>
+  </section>
+
+  <section>
+    <h2>٨. إخلاء المسؤولية</h2>
+    <p>يُقدَّم التطبيق "كما هو" و"بحسب توفره". لا نُقدم أي ضمانات صريحة أو ضمنية تتعلق بموثوقية التطبيق أو دقته أو توافره. ولا نضمن خلو التطبيق من الأخطاء أو الانقطاعات.</p>
+  </section>
+
+  <section>
+    <h2>٩. تحديد المسؤولية</h2>
+    <p>بأقصى الحدود التي يسمح بها القانون المعمول به، لن نكون مسؤولين عن أي أضرار غير مباشرة أو عرضية أو خاصة أو تبعية أو عقابية تنشأ عن استخدامك للتطبيق أو ارتباطه به، حتى لو أُبلغنا باحتمال وقوع مثل هذه الأضرار.</p>
+  </section>
+
+  <section>
+    <h2>١٠. تعديلات الخدمة</h2>
+    <p>نحتفظ بالحق في تعديل أي جانب من جوانب التطبيق أو تعليقه أو إيقافه في أي وقت مع الإشعار أو دونه. ولن نكون مسؤولين أمامك أو أمام أي طرف ثالث عن أي تعديل أو تعليق أو إيقاف.</p>
+  </section>
+
+  <section>
+    <h2>١١. التغييرات على هذه الشروط</h2>
+    <p>قد نحدّث شروط الخدمة هذه من وقت لآخر. تسري التغييرات فور نشرها. استمرارك في استخدام التطبيق بعد أي تغييرات يُعدّ قبولًا للشروط المحدثة. سنخطرك بالتغييرات الجوهرية عبر التطبيق.</p>
+  </section>
+
+  <section>
+    <h2>١٢. القانون الحاكم</h2>
+    <p>تخضع شروط الخدمة هذه وتُفسَّر وفقًا لأنظمة المملكة العربية السعودية، بما فيها نظام التجارة الإلكترونية ولوائحه التنفيذية. تختص المحاكم المختصة في المملكة العربية السعودية حصريًا بالنظر في أي نزاعات تنشأ عن هذه الشروط أو تتصل بها.</p>
+  </section>
+
+  <section>
+    <h2>١٣. التواصل معنا</h2>
+    <p>لأي استفسارات حول هذه الشروط، يُرجى التواصل معنا عبر إنستغرام: <a href="https://instagram.com/useqooti" target="_blank">@useqooti</a></p>
+  </section>
+
+</main>
+<footer>&copy; 2025 Qooti. جميع الحقوق محفوظة. &nbsp;|&nbsp; <a href="privacy.html">سياسة الخصوصية</a></footer>
+</div>
+
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.classList.toggle('visible', el.dataset.lang === lang);
+    });
+    document.documentElement.lang = lang;
+    document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
+    });
+    localStorage.setItem('qooti-lang', lang);
+  }
+  const saved = localStorage.getItem('qooti-lang');
+  if (saved && saved !== 'en') setLang(saved);
+</script>
 
 </body>
 </html>
